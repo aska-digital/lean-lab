@@ -6,6 +6,14 @@ Sleek Startup aims to improve the path from an uncertain idea to a useful, susta
 
 **Status: initial working framework for review, 2026-11-03.** This is a foundation to test and improve, not a validated claim of superiority or an exhaustive description of our operations. The ambition is to capture everything valuable in those operations, including practices that have not yet been documented here.
 
+## A movement for the agentic age
+
+We want to help solo founders and small teams turn ideas into useful products, challenge incumbents and pursue opportunities beyond their current resources. Inspired by Eric Ries and the Lean Startup tradition, Sleek Startup invites a new generation of builders to pair agentic capability with validated learning and responsible action.
+
+The ambition is broader participation, including people who are just getting started. Share practical methods, accessible tools, honest results and lessons others can reuse. Help newcomers build judgment as well as capacity. Move quickly where choices are reversible, protect people where consequences are serious, and earn trust through useful outcomes.
+
+Build and test this movement through real outcomes. The extent to which agents improve a team’s ability to compete remains a question for evidence. Bring a real problem, try a bounded experiment, and contribute what you learn through the [practice inventory](PRACTICE-INVENTORY.md).
+
 ## Start here
 
 1. Read the [framework](FRAMEWORK.md) for principles and the operating loop.
