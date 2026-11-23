@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Methodology · Lean Lab</title>
+<meta name="description" content="The Lean Lab methodology and operating manual: swarm architecture, verification standard, silicon economics, operating model and falsification rules.">
+<meta name="theme-color" content="#070b0e">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;1,400&display=swap">
+<link rel="stylesheet" href="styles.css">
+<style>
+.doc { padding-block: clamp(40px, 6vw, 88px) clamp(64px, 8vw, 110px); }
+.doc-head { border-bottom: 1px solid var(--line); padding-bottom: 28px; margin-bottom: 40px; }
+.doc-head h1 { font: 600 clamp(40px, 5.4vw, 80px)/.98 var(--f-sans); letter-spacing: -.045em; margin-top: 22px; }
+.doc-status { font: 400 16px/1.55 var(--f-serif); color: var(--ink-2); max-width: 66ch; margin-top: 22px; padding-left: 16px; border-left: 2px solid var(--bio); }
+.doc-crumbs { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 18px; }
+.doc-toc { margin: 0 0 40px; padding: 22px 24px; background: var(--bg-2); border: 1px solid var(--line); font: 500 12px/1.9 var(--f-mono); letter-spacing: .06em; }
+.doc-toc b { display: block; color: var(--bio); letter-spacing: .14em; text-transform: uppercase; margin-bottom: 6px; }
+.doc-toc a { color: var(--ink-2); text-decoration: none; }
+.doc-toc a:hover { color: var(--ink); }
+.doc-body { max-width: 70ch; font: 400 18px/1.7 var(--f-serif); color: var(--ink-2); }
+.doc-body h2 { font: 600 clamp(28px, 2.4vw, 38px)/1.12 var(--f-sans); letter-spacing: -.03em; color: var(--ink); margin: 64px 0 18px; }
+.doc-body h3 { font: 600 22px/1.25 var(--f-sans); letter-spacing: -.02em; color: var(--ink); margin: 36px 0 12px; }
+.doc-body p + p, .doc-body p + ol, .doc-body p + ul { margin-top: 1em; }
+.doc-body p strong { color: var(--ink); font-weight: 600; }
+.doc-body ol, .doc-body ul { padding-left: 1.2em; list-style: disc; }
+.doc-body li + li { margin-top: .5em; }
+.doc-body .tag { font: 500 12px/1 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--dig); }
+.doc-nav { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 56px; padding-top: 28px; border-top: 1px solid var(--line); }
+.doc-nav a { font: 500 12px/1 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; text-decoration: none; color: var(--ink-2); border: 1px solid var(--line-ui); padding: 12px 16px; }
+.doc-nav a:hover { color: var(--ink); border-color: var(--ink-2); }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="Lean Lab home"><span class="pair" aria-hidden="true"><i></i><i></i></span>Lean Lab</a>
+    <nav class="nav" aria-label="Main">
+      <a href="index.html#loop">Loop</a><a href="index.html#swarm">Swarm</a><a href="index.html#ladder">Evidence</a><a href="index.html#principles">Principles</a><a href="index.html#docs">Docs</a>
+      <a class="nav-cta" href="manifesto.html">Manifesto</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="wrap doc">
+
+  <header class="doc-head">
+    <p class="label"><b>02</b><i>//</i>Operating manual</p>
+    <h1 id="top">Sovereign Neo-Lab: Methodology and Operating Manual</h1>
+    <nav class="doc-crumbs" aria-label="Related documents">
+      <a class="label" href="index.html">Home</a>
+      <a class="label" href="manifesto.html">Manifesto</a>
+      <a class="label" href="https://github.com/aska-digital/lean-lab/blob/feat/lean-lab-site-and-docs/FRAMEWORK.md">Framework</a>
+    </nav>
+    <p class="doc-status">Status: working methodology for review. Sections marked MEASURE state hypotheses that must be established against a baseline before being reported as results.</p>
+  </header>
+
+  <nav class="doc-toc" aria-label="Contents">
+    <b>Contents</b>
+    <a href="#part-1">Part I. Virtual-Human Swarm Architecture</a><br>
+    <a href="#part-2">Part II. Verification standard</a><br>
+    <a href="#part-3">Part III. Mathematical determinism over statistical heuristics</a><br>
+    <a href="#part-4">Part IV. Silicon economics</a><br>
+    <a href="#part-5">Part V. Sovereign Neo-Lab operating manual</a><br>
+    <a href="#part-6">Part VI. Measurements to establish before claiming results</a><br>
+    <a href="#part-7">Part VII. Open questions</a><br>
+    <a href="#part-8">Part VIII. Falsification, novelty tiers and retraction</a><br>
+    <a href="#part-9">Part IX. Measurements to establish before claiming results (falsification)</a>
+  </nav>
+
+  <article class="doc-body">
+
+    <h2 id="part-1">Part I. Virtual-Human Swarm Architecture</h2>
+    <p>The swarm is a set of bounded agent personas. Each persona has one responsibility, a defined set of permissions, and a defined output contract. Role separation is the main control: no persona both produces and approves its own output.</p>
+
+    <h3 id="personas">1. Personas</h3>
+    <p><strong>Architect.</strong> Owns the specification: the outcome, interfaces, invariants, and decomposition into components. Produces the design record. Does not write production code for components it will later review.</p>
+    <p><strong>Kernel engineer.</strong> Implements against the specification in the target language and runtime. Produces code, build files, and tests. Has write access only to its assigned component and branch. Cannot merge.</p>
+    <p><strong>Adversarial auditor.</strong> Attempts to falsify the implementation. Reads the specification, constructs failure cases, looks for trust-boundary violations, unsafe defaults, undefined behavior and specification drift. Its job is to find what the kernel engineer missed. It has read access to the artifact and the spec, and no authority to modify the implementation except by filing findings.</p>
+    <p><strong>Formal mathematician.</strong> States and checks the properties that admit formal treatment: invariants, bounds, termination, equivalence between a reference model and an optimized implementation. Produces machine-checkable proofs or explicitly reports which properties it could not formalize.</p>
+    <p><strong>Integration owner (human).</strong> Holds merge authority, resolves disagreements between personas, and records decisions. This role is never delegated to an agent.</p>
+    <p>The persona names used in our working notes map onto these roles. A role is a function, not a fixed identity. One agent may hold several roles across different tasks, but never the producer and approver roles for the same artifact.</p>
+
+    <h3 id="handoffs">2. Handoffs</h3>
+    <p>Every handoff carries: the source request and its scope, the specification version, the artifact version (commit hash), unresolved risks, checks performed and their results, and the next owner. A handoff without an artifact hash is invalid, because verification refers to a specific version.</p>
+
+    <h3 id="landlock">3. Landlock pre-execution sandboxing</h3>
+    <p>Agents that execute code do so under a Landlock sandbox applied before the process runs. Landlock is a Linux security module available to unprivileged processes since kernel 5.13. It restricts filesystem access by a ruleset the process installs on itself, and the restrictions are inherited by children and cannot be lifted by the process.</p>
+    <p>Rules:</p>
+    <ul>
+      <li>Apply the ruleset before any untrusted code executes, not after. The verification step must confirm the restriction is active by attempting a forbidden access and requiring it to fail.</li>
+      <li>Grant read access only to the specification, the artifact under review, and required toolchains. Grant write access only to the component's build output directory. Network egress is controlled by a separate layer; Landlock is one control, not the whole sandbox.</li>
+      <li>A check that the sandbox is not in effect is a hard failure, not a warning.</li>
+    </ul>
+
+    <h3 id="zero-trust">4. Zero-trust cryptographic gates</h3>
+    <p>No artifact moves between stages on the producer's word. Each gate verifies:</p>
+    <ul>
+      <li><strong>Identity:</strong> the commit is signed by a key authorized for the stage that produced it.</li>
+      <li><strong>Integrity:</strong> the artifact hash matches the hash recorded in the handoff.</li>
+      <li><strong>Policy:</strong> the artifact passed the checks the stage requires, and the check results are bound to that hash.</li>
+      <li><strong>Authorization:</strong> a human approval, where required, references the same hash.</li>
+    </ul>
+    <p>Gates fail closed. Missing evidence is a failure. Evidence is bound to content, so a passing result for version A cannot be reused for version B. Any change after review invalidates the review.</p>
+
+    <h3 id="pipeline">5. Deterministic commit pipeline</h3>
+    <p>The pipeline runs from a pinned toolchain in a hermetic environment, with a fixed input set and no ambient state. The same source at the same commit must produce bit-identical build outputs, or the difference must be explained and recorded.</p>
+    <p>Stages: specify (spec file validated against schema), build (pinned toolchain, recorded environment), test (deterministic seed, recorded results), audit (adversarial findings filed), prove (formal checks where applicable), gate (cryptographic checks), merge (human authority).</p>
+    <p>Non-determinism is treated as a defect. Random seeds are fixed and logged. Timestamps and host paths are excluded from artifacts.</p>
+
+    <h2 id="part-2">Part II. Verification standard</h2>
+    <p>A claim is accepted only with evidence at the level it asserts.</p>
+    <ul>
+      <li><strong>Level 0, observed:</strong> a behavior was seen once. Not evidence of reliability.</li>
+      <li><strong>Level 1, tested:</strong> a reproducible test passes at a recorded commit, with stated coverage.</li>
+      <li><strong>Level 2, audited:</strong> an independent persona attempted to falsify the claim and the attempts and outcomes are recorded.</li>
+      <li><strong>Level 3, proven:</strong> a machine-checked proof covers the stated property under stated assumptions.</li>
+    </ul>
+    <p>Reports separate passed, failed, blocked and untested areas. A test pass is never described as proof of a property it did not check.</p>
+
+    <h2 id="part-3">Part III. Mathematical determinism over statistical heuristics</h2>
+    <p>Where a property can be expressed as an invariant, state it and check it: conservation of a quantity, bounds on an index, equivalence of two implementations on a defined domain, termination of a loop with a decreasing measure. Prefer the checkable form. If an invariant cannot be stated, say so and mark the claim as heuristic, with the sample size, distribution assumptions and failure rate reported.</p>
+    <p>Statistical methods remain appropriate for estimating quantities with real uncertainty, such as performance under load or user behavior. They are not a substitute for correctness properties.</p>
+
+    <h2 id="part-4">Part IV. Silicon economics</h2>
+    <p>The cost of an artifact is not its token count. Track the full path.</p>
+    <ul>
+      <li><strong>Hardware multiplier:</strong> how much useful output one unit of hardware produces over its service life, measured as completed verified work per unit time at a stated utilization. Report the utilization. A high multiplier at low utilization is not an economic result.</li>
+      <li><strong>TCO efficiency:</strong> total cost of ownership per verified outcome, including hardware depreciation, power, cooling, operator time, agent and API spend, retries, human review time and maintenance. Report per outcome, with the outcome definition stated.</li>
+      <li><strong>Memory bandwidth wall:</strong> for memory-bound workloads, throughput is limited by data movement rather than arithmetic. Measure achieved bandwidth against the hardware's peak, identify the limiting access pattern, and optimize data layout and reuse before adding compute. Report arithmetic intensity and the roofline position of each workload.</li>
+    </ul>
+    <p><strong>Measurement rules:</strong> state the baseline, the workload, the input set, the hardware and software versions, and the measurement method. Repeat measurements and report variance. A figure without these is a claim, not a result.</p>
+
+    <h2 id="part-5">Part V. Sovereign Neo-Lab operating manual</h2>
+    <p>This part describes how one researcher coordinates many parallel research efforts. The model depends on the discipline above. Without specification, verification and gates, parallelism multiplies errors faster than it multiplies results.</p>
+
+    <h3 id="structure">1. Structure</h3>
+    <p>Each research organization has one accountable owner, one canonical repository, one integration branch, and a written scope. Work across organizations is coordinated by a shared index that records owner, status, and open decisions. Duplicate implementation across organizations is avoided by checking the index before starting work.</p>
+
+    <h3 id="daily-cycle">2. Daily cycle</h3>
+    <ul>
+      <li><strong>Orient:</strong> review the index, open decisions and failed gates from the previous cycle.</li>
+      <li><strong>Frame:</strong> choose the decision-relevant uncertainty for each active organization. Write the specification and acceptance criteria before any generation.</li>
+      <li><strong>Run:</strong> dispatch bounded persona tasks under the swarm architecture. Keep the number of concurrently open artifacts within review capacity. Stop spawning work when review and integration queues grow.</li>
+      <li><strong>Verify:</strong> run the gates. Record evidence level per claim.</li>
+      <li><strong>Decide:</strong> continue, change, stop, or name the missing evidence. Record each decision with its trigger for revisiting.</li>
+      <li><strong>Retain:</strong> write the negative results, the decision log, and any reusable procedure or test.</li>
+    </ul>
+
+    <h3 id="wip">3. Work-in-progress limit</h3>
+    <p>The limiting resource is human review and decision time, not agent throughput. Set the limit on open artifacts awaiting integration to what one integration owner can review at the required standard. Measure review backlog and time-to-decision weekly.</p>
+
+    <h3 id="scaling">4. Scaling across domains</h3>
+    <p>Each domain carries its own specification language, verification tools and risk level. High-assurance domains require Level 2 or Level 3 evidence before integration. Exploratory domains may integrate at Level 1 with an explicit label. The level required is set in the specification, not chosen after the fact.</p>
+
+    <h3 id="operator">5. Protecting the operator</h3>
+    <p>A single operator working at night is a reliability and safety risk. Consequential actions are not taken unattended unless the gate and authority rules for them have been defined in advance. Scheduled agent runs do not widen permissions. Access to data and external systems is granted per task and revoked when the task closes.</p>
+
+    <h3 id="ip">6. Intellectual property and records</h3>
+    <p>Every artifact is tied to a specification version, a commit, and the decision that authorized it. This record is the basis for provenance claims. Third-party material is recorded with its source and license, following <a href="https://github.com/aska-digital/lean-lab/blob/feat/lean-lab-site-and-docs/SOURCES.md">SOURCES.md</a>.</p>
+
+    <h2 id="part-6">Part VI. Measurements to establish before claiming results</h2>
+    <ul>
+      <li><strong>M1.</strong> Review and rework rate per artifact, compared against a stated pre-swarm or single-agent baseline.</li>
+      <li><strong>M2.</strong> Fraction of defects found by the adversarial auditor that the kernel engineer's own tests did not catch.</li>
+      <li><strong>M3.</strong> Gate failure rate and the causes of gate failures.</li>
+      <li><strong>M4.</strong> Bit-reproducibility rate of the build pipeline across repeated runs.</li>
+      <li><strong>M5.</strong> Hardware utilization and verified outcomes per unit time.</li>
+      <li><strong>M6.</strong> TCO per verified outcome, with the outcome definition and cost components listed.</li>
+      <li><strong>M7.</strong> Achieved memory bandwidth against peak for each memory-bound workload.</li>
+    </ul>
+    <p>Until these are measured, the methodology is a hypothesis with a defined test, and should be described that way.</p>
+
+    <h2 id="part-7">Part VII. Open questions</h2>
+    <ul>
+      <li>Which properties in our highest-risk domains can be stated formally at reasonable cost.</li>
+      <li>Whether independent adversarial review by a model reliably catches defects a human reviewer would catch, and under which conditions it fails.</li>
+      <li>How much of the Landlock ruleset can be generated from the specification without weakening it.</li>
+      <li>Whether the efficiency gains hold once the review and integration queue is included in the cost.</li>
+    </ul>
+
+    <h2 id="part-8">Part VIII. Falsification, novelty tiers and retraction</h2>
+    <p>This part governs how a claim earns a name. It applies to every organization in the Neo-Lab.</p>
+
+    <h3 id="prereg">1. Pre-registration</h3>
+    <p>Before a test is run, record the hypothesis, the exact domain (for example exact rational or integer arithmetic over Q or Z where the domain allows), the adversarial null, the normalization that removes trivial explanations, the falsification criterion, and the evidence level required. The record is committed before the result is generated. A criterion changed after the run is a new hypothesis, not a revision of the old one.</p>
+
+    <h3 id="nulls">2. Adversarial nulls and null-normalization</h3>
+    <p>Every candidate is compared against a null that a reasonable skeptic would propose. A result counts only if it exceeds the null under the stated normalization. Where a candidate collapses under its null, the collapse is the result.</p>
+
+    <h3 id="verification-route">3. Verification route</h3>
+    <p>Where the property admits a formal statement, it is checked in a proof assistant. Where it does not, it is checked by reproducible computation with fixed seeds and recorded environments, and the claim is held at Level 1 or Level 2 accordingly. Formal checks must be run by the formal mathematician persona, and the producer may not sign its own proof.</p>
+
+    <h3 id="tiers">4. Novelty tiers</h3>
+    <ul>
+      <li><strong>N0, prior art.</strong> Known results are quarantined and cited with their sources. They are not presented as contributions, and their presence in a candidate is reported.</li>
+      <li><strong>N1, incremental advance.</strong> A scoped extension of known results. The write-up states the exact reach of the extension, including the cases it does not cover.</li>
+      <li><strong>N2, canonical declaration, called "The Theorem" in working notes.</strong> Reserved for results that have complete machine-checked formalization with zero sorry, zero axiom and zero cheat. No document, title, site copy or conversation may use N2 language before that condition is met and recorded.</li>
+    </ul>
+    <p>A result is assigned the tier its evidence supports, and no higher. Tier changes are recorded in the decision log.</p>
+
+    <h3 id="retraction">5. Retraction</h3>
+    <p>When a hypothesis collapses, record the collapse in the same location as confirmed results, with the null that survived, the counterexample, and the date. Publish retractions on the same surface as the original claim. A retraction is a completed cycle, not an incident.</p>
+
+    <h3 id="naming">6. Naming</h3>
+    <p>Names describe what was shown. Do not give a result a legendary name, and do not use a historical figure's name for a result, before the N2 condition is met. Placeholder labels must be marked as placeholders.</p>
+
+    <h3 id="lineage">7. Lineage</h3>
+    <p>The Ramanujan, Hawking and Bayt al-Hikma traditions are honored by applying their standards, not by quoting or mythologizing them. Tribute means that a classical intuition is tested with exact arithmetic and adversarial nulls. It does not mean reverence, folklore, or a memorial that is not backed by a check.</p>
+
+    <h2 id="part-9">Part IX. Measurements to establish before claiming results (falsification)</h2>
+    <ul>
+      <li><strong>F1.</strong> Number of pre-registered hypotheses, and the number confirmed, falsified and inconclusive. Report all three.</li>
+      <li><strong>F2.</strong> Number of retractions published, with the cycle in which each was found.</li>
+      <li><strong>F3.</strong> Count of claims by novelty tier, and any claim presented above its tier.</li>
+      <li><strong>F4.</strong> Count of formal artifacts with sorry, axiom or cheat remaining. Must be zero for any N2 claim.</li>
+    </ul>
+
+  </article>
+
+  <nav class="doc-nav" aria-label="Next steps">
+    <a href="index.html">Back to Lean Lab</a>
+    <a href="manifesto.html">Read the manifesto</a>
+    <a href="https://github.com/aska-digital/lean-lab/blob/feat/lean-lab-site-and-docs/METHODOLOGY.md">Source on GitHub</a>
+  </nav>
+
+</main>
+
+<footer class="wrap footer">
+  <a class="brand" href="index.html"><span class="pair" aria-hidden="true"><i></i><i></i></span>Lean Lab</a>
+  <p>Specify, verify, falsify.<br>Working edition · November 2026</p>
+  <a href="https://askaconsult.com">An ASKA initiative</a>
+</footer>
+</body>
+</html>
