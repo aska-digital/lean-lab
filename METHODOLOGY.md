@@ -157,3 +157,51 @@ Whether independent adversarial review by a model reliably catches defects a hum
 How much of the Landlock ruleset can be generated from the specification without weakening it.
 
 Whether the efficiency gains hold once the review and integration queue is included in the cost.
+
+## Part VIII. Falsification, novelty tiers and retraction
+
+This part governs how a claim earns a name. It applies to every organization in the Neo-Lab.
+
+### 1. Pre-registration
+
+Before a test is run, record the hypothesis, the exact domain (for example exact rational or integer arithmetic over Q or Z where the domain allows), the adversarial null, the normalization that removes trivial explanations, the falsification criterion, and the evidence level required. The record is committed before the result is generated. A criterion changed after the run is a new hypothesis, not a revision of the old one.
+
+### 2. Adversarial nulls and null-normalization
+
+Every candidate is compared against a null that a reasonable skeptic would propose. A result counts only if it exceeds the null under the stated normalization. Where a candidate collapses under its null, the collapse is the result.
+
+### 3. Verification route
+
+Where the property admits a formal statement, it is checked in a proof assistant. Where it does not, it is checked by reproducible computation with fixed seeds and recorded environments, and the claim is held at Level 1 or Level 2 accordingly. Formal checks must be run by the formal mathematician persona, and the producer may not sign its own proof.
+
+### 4. Novelty tiers
+
+N0, prior art. Known results are quarantined and cited with their sources. They are not presented as contributions, and their presence in a candidate is reported.
+
+N1, incremental advance. A scoped extension of known results. The write-up states the exact reach of the extension, including the cases it does not cover.
+
+N2, canonical declaration, called "The Theorem" in working notes. Reserved for results that have complete machine-checked formalization with zero sorry, zero axiom and zero cheat. No document, title, site copy or conversation may use N2 language before that condition is met and recorded.
+
+A result is assigned the tier its evidence supports, and no higher. Tier changes are recorded in the decision log.
+
+### 5. Retraction
+
+When a hypothesis collapses, record the collapse in the same location as confirmed results, with the null that survived, the counterexample, and the date. Publish retractions on the same surface as the original claim. A retraction is a completed cycle, not an incident.
+
+### 6. Naming
+
+Names describe what was shown. Do not give a result a legendary name, and do not use a historical figure's name for a result, before the N2 condition is met. Placeholder labels must be marked as placeholders.
+
+### 7. Lineage
+
+The Ramanujan, Hawking and Bayt al-Hikma traditions are honored by applying their standards, not by quoting or mythologizing them. Tribute means that a classical intuition is tested with exact arithmetic and adversarial nulls. It does not mean reverence, folklore, or a memorial that is not backed by a check.
+
+## Part IX. Measurements to establish before claiming results (falsification)
+
+F1. Number of pre-registered hypotheses, and the number confirmed, falsified and inconclusive. Report all three.
+
+F2. Number of retractions published, with the cycle in which each was found.
+
+F3. Count of claims by novelty tier, and any claim presented above its tier.
+
+F4. Count of formal artifacts with sorry, axiom or cheat remaining. Must be zero for any N2 claim.
