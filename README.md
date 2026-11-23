@@ -1,33 +1,46 @@
-# Sleek Startup
+# Lean Lab
 
-Lean Startup evolved for the agentic age, grounded in how we actually work.
+Lean Lab is the Neo-Lab doctrine for small teams and solo operators who build with agents. It extends Eric Ries's Lean Startup loop of Build, Measure, Learn into Specify, Verify, Falsify, and it treats formal proof as the strongest form of evidence available.
 
-Sleek Startup aims to improve the path from an uncertain idea to a useful, sustainable outcome when people and agents work together. Faster production makes it more important to choose worthwhile work, test the right uncertainty, preserve decision authority, and account for review and rework. Generating more artifacts is easy to mistake for progress.
+**Status: working edition for review, November 2026.** This is a foundation to test and improve, not a validated claim of superiority. Claims in these documents are positions to test. Where a number is stated, the methodology says how it must be measured.
 
-**Status: initial working framework for review, 2026-11-03.** This is a foundation to test and improve, not a validated claim of superiority or an exhaustive description of our operations. The ambition is to capture everything valuable in those operations, including practices that have not yet been documented here.
+## The doctrine in brief
 
-## A movement for the agentic age
+When generating an artifact is nearly free, the discipline moves upstream into specification and downstream into verification.
 
-We want to help solo founders and small teams turn ideas into useful products, challenge incumbents and pursue opportunities beyond their current resources. Inspired by Eric Ries and the Lean Startup tradition, Sleek Startup invites a new generation of builders to pair agentic capability with validated learning and responsible action.
+- **Specify.** Before an agent writes code, the outcome, invariants, failure modes and stop conditions are written in a form a machine can check.
+- **Verify.** Each artifact is checked by mechanisms that do not trust the agent that produced it. Formal proofs come first where a property admits one, using Lean 4 as the proof assistant. Deterministic tests and reproducible builds cover the rest, and independent adversarial review covers everything else.
+- **Falsify.** Each cycle tries to break the claim. Negative and inconclusive results are recorded, so no one repeats a failed search.
 
-The ambition is broader participation, including people who are just getting started. Share practical methods, accessible tools, honest results and lessons others can reuse. Help newcomers build judgment as well as capacity. Move quickly where choices are reversible, protect people where consequences are serious, and earn trust through useful outcomes.
+The working rules are seven principles: specification precedes generation; trust is not delegated to the producer; determinism is a feature; invariants beat heuristics where they exist; authority stays with a named human; cost includes checking; and sovereignty over the stack matters for high-assurance work.
 
-Build and test this movement through real outcomes. The extent to which agents improve a team’s ability to compete remains a question for evidence. Bring a real problem, try a bounded experiment, and contribute what you learn through the [practice inventory](PRACTICE-INVENTORY.md).
+The Lean Startup foundation, including validated learning and falsifiable experiments, is kept intact. Lean 4 is the intended tool for machine-checked proofs in the Verify step. Its use is a direction in this doctrine, not yet a documented result.
+
+## Read in this order
+
+1. [Manifesto](MANIFESTO.md): the origin, the Specify-Verify-Falsify thesis, the seven principles, and what we are not claiming.
+2. [Methodology](METHODOLOGY.md): the swarm architecture of bounded personas, handoffs, Landlock sandboxing, zero-trust cryptographic gates, the deterministic commit pipeline, the four-level verification standard, and the measurements that must be established before results are claimed.
+3. [Framework](FRAMEWORK.md): principles and the operating loop (Orient, Frame, Test, Verify, Decide, Retain).
+4. [Field guide](FIELD-GUIDE.md): run one real learning cycle in an existing issue or work record.
+5. [Cycle note template](templates/CYCLE-NOTE.md): copy only the useful parts.
+6. [Practice inventory](PRACTICE-INVENTORY.md): check before treating an idea as established practice or starting overlapping work.
+7. [Sources and contribution guidance](SOURCES.md): follow this when adding evidence, techniques or adaptations.
 
 ## Start here
 
-1. Read the [framework](FRAMEWORK.md) for principles and the operating loop.
-2. Use the [field guide](FIELD-GUIDE.md) to run one real learning cycle in an existing issue or work record.
-3. Copy only the useful parts of the [cycle note](templates/CYCLE-NOTE.md).
-4. Check the [practice inventory](PRACTICE-INVENTORY.md) before treating an idea as established practice or starting overlapping work.
-5. Follow [sources and contribution guidance](SOURCES.md) when adding evidence, techniques or adaptations.
-
 The starting unit is one real problem, one accountable owner, one useful outcome, and the smallest safe test that could change what we do next. Planning, learning, implementation and review can overlap. Decisions should be made when the relevant context arrives, before delay creates harm or removes options.
+
+## Verification levels
+
+A claim is accepted only with evidence at the level it asserts.
+
+- Level 0, observed: seen once, not evidence of reliability.
+- Level 1, tested: a reproducible test passes at a recorded commit.
+- Level 2, audited: an independent persona tried to falsify the claim, and the attempts are recorded.
+- Level 3, proven: a machine-checked proof covers the stated property under stated assumptions.
 
 ## Relationship to Lean Startup
 
-Eric Ries's Lean Startup provides the foundation: validated learning, Build–Measure–Learn, experiments, actionable measures, and decisions to pivot or persevere. Sleek Startup adapts that foundation to human–agent operations. It does not claim to invent these principles, imply endorsement, or reproduce the original book. See the [attribution record](SOURCES.md).
-
-Our candidate improvements include explicit authority for agents, one implementation owner, bounded parallel work, evaluation of the exact artifact, contextual decisions, and accounting for the full cost of learning. Their value must be demonstrated against a suitable baseline. More agents, more automation and more process are not goals in themselves.
+Eric Ries's Lean Startup provides the foundation. Lean Lab adapts it to human-agent operations. It does not claim to invent these principles, imply endorsement, or reproduce the original book. See [SOURCES.md](SOURCES.md) for the attribution record.
 
 This repository does not supersede product-specific procedures, permissions, safety requirements or participant agreements. Product decisions remain with their owners. No license or new reuse permission is granted for external source material by citing it here.
