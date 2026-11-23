@@ -42,12 +42,40 @@ P6. Cost includes checking. The true cost of an artifact is the cost of producin
 
 P7. Sovereignty over the stack. Where the work is high-assurance, the team should understand and control the hardware, the runtime and the trust boundaries it depends on. Dependence on an opaque service for a property that matters is a risk to be documented, not hidden.
 
+P8. Tribute is paid through falsification. We honor the lineage of mathematics and science by subjecting classical intuitions and foundational hypotheses to machine-checked verification over exact arithmetic (Q or Z) and adversarial nulls. We do not honor it through reverent hagiography, folklore, or vanity memorials. A tribute that cannot survive a check is not a tribute.
+
+P9. Novelty is tiered and quarantined. Prior art is quarantined as N0 and is cited, not claimed. Incremental advances are scoped as N1 and described with their exact reach. Canonical declarations, called N2 or "The Theorem", are reserved until complete machine-checked formalization exists, with zero sorry, zero axiom and zero cheat.
+
+P10. Pre-registered falsification and public retraction. Hypotheses are stated, and their falsification criteria fixed, before the test is run. When a hypothesis collapses under null-normalization, the collapse is recorded and published as a result. Retraction is a first-class victory of the method over ego, not a failure to be hidden.
+
+P11. Naming restraint. We do not attach legendary names to work, and we do not claim breakthroughs on placeholders, before the formal proofs exist. Names describe what was shown, not what we hope will be shown.
+
 ## 4. Relationship to the existing framework
 
 This manifesto extends FRAMEWORK.md. The framework's operating loop (Orient, Frame, Test, Verify, Decide, Retain) still applies. The Neo-Lab adds a stronger specification step before testing, a verification standard that does not depend on the producer, and a silicon-level account of cost. Where this document and the framework conflict, the framework governs until the conflict is resolved through review.
 
-## 5. What we are not claiming
+## 5. Lineage and epistemic discipline
 
-We do not claim that agents make any team superior by default. We do not claim that a single operator can replace a research organization. We do not claim proofs for properties that have not been stated formally, and we do not claim performance figures without a baseline and a measurement method. The methodology document lists how each such claim must be established before it is made.
+Lean Lab acknowledges the intellectual lineage of the Ramanujan, Hawking and Bayt al-Hikma traditions. We take from them a method, not a monument. Ramanujan's conjectures are a reminder that intuition generates hypotheses at extraordinary rate, and that each one owes a proof. Hawking's work is a reminder that a bold theoretical claim earns its standing only when it is held to the test of the formal model and of observation. The House of Wisdom in Baghdad is a reminder that translation, checking and shared preservation of knowledge are collective labor, and that the record of what was tried matters as much as the result.
+
+This acknowledgment is not an endorsement of anything those figures or institutions did or said beyond what the formal record supports. It does not transfer their authority to our claims. A lineage is honored by checking what it handed us.
+
+## 6. Epistemic discipline in practice
+
+Classical intuition and foundational hypotheses enter Lean Lab as candidates. Each candidate is stated over exact arithmetic where the domain allows, with the adversarial null written down before the test. The null is normalized so that a trivial explanation is not mistaken for a discovery. The candidate is then checked by machine: formally where the property admits a proof, and by reproducible computation with recorded seeds where it does not.
+
+The outcomes are fixed in advance and may be:
+
+Confirmed within the stated reach, recorded with its exact scope.
+
+Falsified, recorded with the counterexample or the null that survived.
+
+Inconclusive, recorded as inconclusive, with the missing evidence named.
+
+No outcome is hidden because it is unflattering. A collapsed hypothesis is kept in the record so that others do not repeat the search.
+
+## 7. What we are not claiming
+
+We do not claim that agents make any team superior by default. We do not claim that a single operator can replace a research organization. We do not claim proofs for properties that have not been stated formally, and we do not claim performance figures without a baseline and a measurement method. We do not claim novelty for prior art, and we do not treat a placeholder as a result. The methodology document lists how each such claim must be established before it is made.
 
 The ambition is narrower and testable: that disciplined specification, independent verification and deterministic pipelines let a small team deliver high-assurance work at a cost and speed that would otherwise require a much larger organization, and that this can be shown against a stated baseline.
